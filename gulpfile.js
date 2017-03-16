@@ -10,17 +10,18 @@ gulp.task('watch', function () {
 
 });
 
-gulp.task('build', function () {
+gulp.task('build', function (cb) {
 
   gulp.src('src/index.js')
     .pipe(babel({
       presets: ['es2015', 'stage-3'],
     }))
-    .pipe(gulp.dest(''));
+    .pipe(gulp.dest(''))
+    .on('end', cb);
 
 });
 
-gulp.task('test', function (cb) {
+gulp.task('test', ['build'], function (cb) {
 
   exec('node index.js sample/index.json result', function (err, std) {
     if (err) return cb(err);
