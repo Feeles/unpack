@@ -30,6 +30,6 @@ function mkdirIfNotExist(absolutePath) {
   if (!fs.existsSync(absolutePath)) {
     const dir = path.parse(absolutePath).dir;
     mkdirIfNotExist(dir);
-    fs.mkdir(absolutePath);
+    fs.mkdirSync(absolutePath);
   }
 }

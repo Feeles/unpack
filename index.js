@@ -66,6 +66,6 @@ function mkdirIfNotExist(absolutePath) {
   if (!_fs2.default.existsSync(absolutePath)) {
     var dir = _path2.default.parse(absolutePath).dir;
     mkdirIfNotExist(dir);
-    _fs2.default.mkdir(absolutePath);
+    _fs2.default.mkdirSync(absolutePath);
   }
 }
