@@ -25,7 +25,7 @@ if (!source || !output) {
 var sourcePath = _path2.default.resolve(source);
 var outputPath = _path2.default.resolve(output);
 
-console.log('Feeles/unpack: ' + sourcePath + ' into ' + outputPath);
+console.info('\uD83D\uDC5C Feeles/unpack:\t' + sourcePath + ' into\t' + outputPath);
 
 mkdirIfNotExist(outputPath);
 
@@ -41,11 +41,10 @@ try {
     var name = _ref2.name,
         composed = _ref2.composed;
 
-
     var filePath = _path2.default.join(outputPath, name);
     var loc = _path2.default.parse(filePath);
     mkdirIfNotExist(loc.dir);
-    _fs2.default.writeFile(filePath, composed, 'base64');
+    _fs2.default.writeFileSync(filePath, composed, 'base64');
   }
 } catch (err) {
   _didIteratorError = true;
